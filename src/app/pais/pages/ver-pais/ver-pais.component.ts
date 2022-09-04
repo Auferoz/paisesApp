@@ -13,7 +13,7 @@ import { Country } from '../../interfaces/pais.interface';
 })
 export class VerPaisComponent implements OnInit {
 
-  pais!: Country;
+  pais!: Country[];
 
   constructor( 
     private activatedRoute: ActivatedRoute,

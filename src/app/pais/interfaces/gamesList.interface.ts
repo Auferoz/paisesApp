@@ -1,4 +1,4 @@
-export interface Country {
+export interface GamesList {
     id:               string;
     title:            string;
     released:         string;

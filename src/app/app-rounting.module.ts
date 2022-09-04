@@ -22,7 +22,7 @@ const routes: Routes = [
         component: PorCapitalComponent
     },
     {
-        path: 'pais/:id',
+        path: 'game/:id',
         component: VerPaisComponent,
     },
     {

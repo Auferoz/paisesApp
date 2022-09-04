@@ -2,9 +2,9 @@
     <thead>
         <tr>
             <th> # </th>
-            <th> Bandera </th>
+            <th> Poster </th>
             <th> Nombre </th>
-            <th> Poblacíon </th>
+            <th> Released </th>
             <th> </th>
         </tr>
     </thead>
@@ -12,12 +12,17 @@
         <tr *ngFor="let pais of paises; let i = index">
             <td>{{ i + 1 }}</td>
             <td>
-                <img [src]="pais.flags.svg" [alt]="pais.cca2" class="small-flag">
+                <img [src]="pais.poster" [alt]="pais.id" class="small-flag">
             </td>
-            <td>{{pais.capital}}, {{pais.name.common}}</td>
-            <td>{{pais.population | number }}</td>
             <td>
-                <a [routerLink]="['/pais', pais.cca2]" class="btn btn-primary btn-sm">Ver</a>
+                {{pais.title}} <br>
+                {{pais.genre}} <br>
+                {{pais.platform_name}} <br>
+                {{pais.achievements_obt}} / {{pais.achievements_ttl}}<br>
+            </td>
+            <td>{{pais.released | date }}</td>
+            <td>
+                <a [routerLink]="['/game', pais.id]" class="btn btn-primary btn-sm">Ver</a>
             </td>
         </tr>
     </tbody>

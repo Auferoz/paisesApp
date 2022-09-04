@@ -9,6 +9,7 @@ import { Country } from '../interfaces/pais.interface';
 export class PaisService {
 
   private apiUrl: string = 'https://restcountries.com/v3.1';
+  private apiUrlSheets: string = 'https://sheet.best/api/sheets/2ac89502-af3e-4874-9292-eaf4a1d9c6b8';
 
   constructor( private http: HttpClient ) { }
 
@@ -26,11 +27,18 @@ export class PaisService {
     return this.http.get<Country[]>( url );
   }
 
-  getpaisPorAlpha( id: string ): Observable<Country> {
+  getpaisPorAlpha( id: string ): Observable<Country[]> {
 
-    const url = `${ this.apiUrl }/alpha/${ id }`;
+    const url = `${ this.apiUrlSheets }/tabs/_GamesL_2022/id/${ id }`;
 
-    return this.http.get<Country>( url );
+    return this.http.get<Country[]>( url );
+  }
+
+  buscarRegion( region: string ): Observable<Country[]> {
+
+    const url = `${ this.apiUrlSheets }/tabs/${ region }`;
+
+    return this.http.get<Country[]>( url );
   }
 
 

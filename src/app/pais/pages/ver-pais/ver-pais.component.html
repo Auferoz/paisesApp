@@ -8,48 +8,106 @@
 
     <div class="row">
         <div class="col-12">
-            <h1>País: <small>{{ pais.name }}</small></h1>
+            <h1>Game: <p>{{ pais[0].title }}</p></h1>
         </div>
-    </div>
-
-    <div class="row">
-
         <div class="col-4">
-            <h3>Bandera</h3>
-            <img [src]="pais.flag" class="img-thumbnail" />
+            <div class="card">
+                <img src="{{pais[0].poster}}" alt="{{pais[0].title}}" class="ImgPoster">
+            </div>
         </div>
-
-        <div class="col">
-            <h3>Información</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <strong>Población</strong> {{ pais.population | number }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Código numérico</strong> {{ pais.ccn3 }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Código alpha3</strong> {{ pais.cca2 }}
-                </li>
-            </ul>
+        <div class="col-8">
+            <table class="table table-dark table-striped rounded-5">
+                <thead>
+                    <tr>
+                        <th>
+                            Released
+                        </th>
+                        <td>
+                            {{pais[0].released}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Genre
+                        </th>
+                        <td>
+                            {{pais[0].genre}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Platform
+                        </th>
+                        <td>
+                            <i class="{{pais[0].platform_icon}}"></i> {{pais[0].platform_name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Rating
+                        </th>
+                        <td>
+                            {{pais[0].rating}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Status
+                        </th>
+                        <td>
+                            {{pais[0].status}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Achievements
+                        </th>
+                        <td>
+                            {{pais[0].achievements_obt}} / {{pais[0].achievements_ttl}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Hours
+                        </th>
+                        <td>
+                            {{pais[0].hours_mytb}} / {{pais[0].hours_hltb}}
+                        </td> 
+                    </tr>
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <td>
+                            {{pais[0].date_start | date: 'dd MMM' }} / {{pais[0].date_end | date: 'dd MMM'}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Percent %
+                        </th>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                role="progressbar" aria-label="Animated striped example" 
+                                aria-valuemin="0" aria-valuemax="100"
+                                [style]="'width: '+ pais[0].any + '%'">
+                                {{pais[0].any}}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
         </div>
-
-
     </div>
 
-    <h3>Traducciones</h3>
-    <div class="row">
-        <div class="col">
 
-            <span class="badge bg-primary mr-1">{{ pais.languages.spa }}</span>
-
-        </div>
-    </div>
-
-
-    <!-- <pre class="mt-5">
-    {{ pais | json }}
-</pre> -->
+    <!-- <div class="card">
+        <pre class="p-2">
+        {{ pais | json }}
+        </pre>
+    </div> -->
 
 
 </ng-template>
